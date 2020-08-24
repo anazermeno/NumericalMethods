@@ -1,0 +1,23 @@
+%Inputs - x and y vectors
+
+x=[2.5,3.5,5,6,7.5,10];
+y=[7,5.5,3.9,3.6,3.1,2.8];
+
+%Process - Use the corresponding regression formulas & variables transformations for
+%the power regression
+
+n= length(x)
+lgy= sum(log(y))
+lgx= sum(log(x))
+lgxlgy= sum(log(x).*log(y))
+sumx= sum(log(x))
+sumx2= sum(log(x).^2)
+promlgy= mean(log10(y))
+promlgx= mean(log10(x))
+
+a1= (n*lgxlgy-lgx*lgy)/(n*sumx2-(sumx^2))
+a0= promlgy-a1*promlgx
+A= 10^(a0)
+B= a1
+
+%Output - display results
