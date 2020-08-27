@@ -1,0 +1,41 @@
+%Created by Ana Lizbeth Zermeño Torres
+%Student Number A00824913
+
+%%%%%%%%Please add comments to your code%%%%%%
+
+%Inputs - x and y vectors
+
+x=[-3, -2, -1, 0, 1, 2, 3];
+y=[7.5, 3, 0.5, 1, 3, 6, 14];
+
+%Process - Use the corresponding regression formulas for
+%the polynomial regression
+size = length(x);
+
+%Initialize matrix A in zeros and vector B in zeros
+A= zeros(3, 3);
+B= zeros(3, 1);
+
+%nested for to fill matrix A with the needed data
+for reng = 1 : 3
+    for colum = 1 : 3
+        %In our space A[1][1] we have de variable size
+        if reng == 1 && colum == 1
+        A(reng,colum) = size;
+        continue
+        end
+    %the rest of the matrix A will contain de sum of x elevated to the correspondent power
+    A(reng,colum) = sum(x.^(reng+colum-2));
+    end
+    %We fill vector B with the sum of y * x elevated to the correspondent power
+    B(reng) = sum(x.^(reng-1).*y);
+end
+
+%We solve the system of equations *must have the same number of rows
+a = A\B
+
+%Output - display results
+
+a0= a(1)
+a1= a(2)
+a2= a(3)
