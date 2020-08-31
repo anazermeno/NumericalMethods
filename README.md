@@ -1,2 +1,2 @@
 # NumericalMethods
-Numerical methods solutions
+Numerical methods solutions from class
