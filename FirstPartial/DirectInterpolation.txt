@@ -1,0 +1,41 @@
+%Created by Ana Lizbeth Zermeño Torres
+%Student number A00824913
+
+%%%%%%%Please add comments to your code
+
+%Inputs - x and y vectors
+
+x=[10 15 20 22.5];
+y=[227.04 362.78 517.35 602.97];
+
+%Process - Use the corresponding regression formulas for
+%the direct interpolation
+
+matA= zeros(4,4);
+vectB= zeros(4, 1);
+
+%nested for to fill the matrix with each equations value ro be easier to solve
+for reng = 1 : 4
+    for colum = 1 : 4
+        %the first column is all 1
+        if colum == 1
+            matA(reng,colum) = 1;
+        elseif colum > 1
+            prov= colum - 1;
+            matA(reng,colum) = (x(reng).^prov);
+        end
+    end
+    %vectorB contains the result of each expression
+    vectB(reng) = y(reng);
+end
+
+%solve the equations system
+a = matA\vectB
+
+%Output - display results
+a0= a(1)
+a1= a(2)
+a2= a(3)
+a3= a(4)
+
+result= a0 + a1*16 + a2*(16^2) + a3*(16^3) 
