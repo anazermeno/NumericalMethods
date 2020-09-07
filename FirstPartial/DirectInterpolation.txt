@@ -10,7 +10,6 @@ y=[227.04 362.78 517.35 602.97];
 
 %Process - Use the corresponding regression formulas for
 %the direct interpolation
-
 matA= zeros(4,4);
 vectB= zeros(4, 1);
 
